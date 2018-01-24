@@ -1,0 +1,57 @@
+#include <iostream>
+#include <iomanip>
+#include <fstream>
+
+using namespace std;
+
+main(void)
+{
+string line;
+fstream indent("indent.txt", ios::in);
+fstream temp("temp.txt", ios::out);
+int tabs = 0;
+
+if ( indent.is_open() )
+{
+while ( getline(indent, line) )
+{
+if ( line[0] == '{' )
+{
+for (int i=1;i<=tabs;i++)
+{
+temp << '\t';
+}
+temp << line << endl;
+tabs++;
+}
+else if ( line[0] == '}' )
+{
+tabs--;
+for (int i=1;i<=tabs;i++)
+{
+temp << '\t';
+}
+temp << line << endl;
+}
+else
+{
+for (int i=1;i<=tabs;i++)
+{
+temp << '\t';
+}
+temp << line << endl;
+}
+}
+indent.close();
+temp.close();
+remove("indent.txt");
+rename("temp.txt", "indent.txt");
+}
+
+else
+{
+cout << "Unable to open file successfully" << endl;
+}
+
+return 0;
+}
