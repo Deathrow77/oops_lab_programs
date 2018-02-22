@@ -18,7 +18,7 @@ The assignments given in CS-452 OOPS Lab to CSE 4th Sem at NIT Durgapur. This re
 
 ### Week 3: Graphs and Heaps
 
-1. Adjacency list and adjacency matrix of a graph
+1. ![Adjacency list and adjacency matrix of a graph](https://github.com/ankan17/oops_lab_programs/blob/master/graph1.cpp)
 2. ![Insertion and deletion in a heap](https://github.com/ankan17/oops_lab_programs/blob/master/heap.cpp)
 
 ### Week 4: Graphs and Matrices
