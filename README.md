@@ -7,22 +7,22 @@ The assignments given in CS-452 OOPS Lab to CSE 4th Sem at NIT Durgapur. This re
 #### Week 1: Introduction to C++
 
 1. Large number arithmetic (addition, subtraction and factorial)
-2. Indentation of unindented file
-3. Determinant of matrix using recursion
+2. ![Indentation of unindented file](https://github.com/ankan17/oops_lab_programs/blob/master/indent.cpp)
+3. ![Determinant of matrix using recursion](https://github.com/ankan17/oops_lab_programs/blob/master/determinant.cpp)
 
 #### Week 2: Manipulators
 
 1. Curve plotter
-2. Number pattern 1
-3. Number pattern 2
+2. ![Number pattern 1](https://github.com/ankan17/oops_lab_programs/blob/master/pyramid1.cpp)
+3. ![Number pattern 2](https://github.com/ankan17/oops_lab_programs/blob/master/pyramid2.cpp)
 
 ### Week 3: Graphs and Heaps
 
 1. Adjacency list and adjacency matrix of a graph
-2. Insertion and deletion in a heap
+2. ![Insertion and deletion in a heap](https://github.com/ankan17/oops_lab_programs/blob/master/heap.cpp)
 
 ### Week 4: Graphs and Matrices
 
 1. Insert and Delete nodes in a graph
-2. Inverse of a matrix
+2. ![Inverse of a matrix](https://github.com/ankan17/oops_lab_programs/blob/master/inverse.cpp)
 3. Sum of two upper and lower triangular matrices
