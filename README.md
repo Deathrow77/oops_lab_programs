@@ -37,3 +37,4 @@ The assignments given in CS-452 OOPS Lab to CSE 4th Sem at NIT Durgapur. This re
 1. [Implement Stack using class](https://github.com/ankan17/oops_lab_programs/blob/master/stack.cpp)
 2. [Implement Queue using class](https://github.com/ankan17/oops_lab_programs/blob/master/queue.cpp)
 3. [Matrix addition, subtraction and multiplication](https://github.com/ankan17/oops_lab_programs/blob/master/matrix.cpp)
+4. [Polynomial addition](https://github.com/ankan17/oops_lab_programs/blob/master/polynomial.cpp)
