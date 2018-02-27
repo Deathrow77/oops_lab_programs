@@ -19,19 +19,20 @@ The assignments given in CS-452 OOPS Lab to CSE 4th Sem at NIT Durgapur. This re
 3. [Number pattern 2](https://github.com/ankan17/oops_lab_programs/blob/master/pyramid2.cpp)
 
 
-### Week 3: Graphs and Heaps
+#### Week 3: Graphs and Heaps
 
 1. [Adjacency list and adjacency matrix of a graph](https://github.com/ankan17/oops_lab_programs/blob/master/graph1.cpp)
 2. [Insertion and deletion in a heap](https://github.com/ankan17/oops_lab_programs/blob/master/heap.cpp)
 
 
-### Week 4: Graphs and Matrices
+#### Week 4: Graphs and Matrices
 
 1. Insert and Delete nodes in a graph
 2. [Inverse of a matrix](https://github.com/ankan17/oops_lab_programs/blob/master/inverse.cpp)
 3. Sum of two upper and lower triangular matrices
 
 
-### Week 5: Stack, Queue, Polynomials and Matrices
+#### Week 5: Stack, Queue, Polynomials and Matrices
 
 1. [Implement Stack using class](https://github.com/ankan17/oops_lab_programs/blob/master/stack.cpp)
+2. [Implement Queue using class](https://github.com/ankan17/oops_lab_programs/blob/master/queue.cpp)
