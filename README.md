@@ -57,4 +57,4 @@ The assignments given in CS-452 OOPS Lab to CSE 4th Sem at NIT Durgapur. This re
 #### Week 8: Generic programming
 
 1. Create a [generic Matrix class template](https://github.com/ankan17/oops_lab_programs/blob/master/matrix_template.h) as a header file and [use](https://github.com/ankan17/oops_lab_programs/blob/master/matrix_template_usage.cpp) it
-1. Create a [generic Stack class template]() as a header file and [use]() it
+1. Create a [generic Stack class template](https://github.com/ankan17/oops_lab_programs/blob/master/stack_template.h) as a header file and [use](https://github.com/ankan17/oops_lab_programs/blob/master/stack_template_usage.cpp) it
