@@ -58,3 +58,9 @@ The assignments given in CS-452 OOPS Lab to CSE 4th Sem at NIT Durgapur. This re
 
 1. Create a [generic Matrix class template](https://github.com/ankan17/oops_lab_programs/blob/master/matrix_template.h) as a header file and [use](https://github.com/ankan17/oops_lab_programs/blob/master/matrix_template_usage.cpp) it
 1. Create a [generic Stack class template](https://github.com/ankan17/oops_lab_programs/blob/master/stack_template.h) as a header file and [use](https://github.com/ankan17/oops_lab_programs/blob/master/stack_template_usage.cpp) it
+
+
+#### Week 9: Inheritance
+
+1. [Implement Priority Queue by inheriting from a Queue class](https://github.com/ankan17/oops_lab_programs/blob/master/priorityqueue.cpp)
+1. [Implement Doubly Linked List by inheriting from a Linked List class]()
