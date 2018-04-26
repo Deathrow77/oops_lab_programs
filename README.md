@@ -43,3 +43,12 @@ The assignments given in CS-452 OOPS Lab to CSE 4th Sem at NIT Durgapur. This re
 #### Week 6: BFS and DFS on a graph
 
 1. [Perform BFS and DFS on a graph](https://github.com/ankan17/oops_lab_programs/blob/master/graph2.cpp)
+
+
+#### Week 7: Operator Overloading
+
+1. [Perform operator overloading on Stack class]()
+2. [Perform operator overloading on Matrix class](https://github.com/ankan17/oops_lab_programs/blob/master/matrix_overloaded.cpp)
+3. [Perform operator overloading on Polynomial class]()
+4. [Perform operator overloading on String class]()
+5. [Implement a Matrix class of 2-D points]()
