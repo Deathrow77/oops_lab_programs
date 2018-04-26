@@ -49,6 +49,6 @@ The assignments given in CS-452 OOPS Lab to CSE 4th Sem at NIT Durgapur. This re
 
 1. [Perform operator overloading on Stack class]()
 2. [Perform operator overloading on Matrix class](https://github.com/ankan17/oops_lab_programs/blob/master/matrix_overloaded.cpp)
-3. [Perform operator overloading on Polynomial class]()
+3. [Perform operator overloading on Polynomial class](https://github.com/ankan17/oops_lab_programs/blob/master/polynomial_overloaded.cpp)
 4. [Perform operator overloading on String class]()
 5. [Implement a Matrix class of 2-D points]()
