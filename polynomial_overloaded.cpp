@@ -20,12 +20,29 @@ public:
         start = NULL;
     }
 
-    Term* getPolynomial();
+    ~Polynomial() {
+        while (start != NULL) {
+            Term* temp = start;
+            start = start->next;
+            delete temp;
+        }
+    }
+
+    Polynomial(Polynomial& other) {
+        start = NULL;
+        Term* temp = other.start;
+        while (temp != NULL) {
+            addNewterm(temp->coeff, temp->index);
+            temp = temp->next;
+        }
+    }
+
     void addNewterm(int, int);
-    Polynomial operator+(Polynomial p2);
-    Polynomial operator-(Polynomial p2);
-    friend void operator<<(ostream& obj, Polynomial& p);
-    friend void operator>>(istream& obj, Polynomial& p);
+    Polynomial& operator=(Polynomial&);
+    friend Polynomial& operator+(Polynomial&, Polynomial&);
+    friend Polynomial& operator-(Polynomial&, Polynomial&);
+    friend ostream& operator<<(ostream&, Polynomial&);
+    friend istream& operator>>(istream&, Polynomial&);
 };
 
 Term* Polynomial::createNewTerm(int c, int i) {
@@ -36,10 +53,6 @@ Term* Polynomial::createNewTerm(int c, int i) {
         newTerm->next = NULL;
     }
     return newTerm;
-}
-
-Term* Polynomial::getPolynomial() {
-    return start;
 }
 
 void Polynomial::addNewterm(int c, int i) {
@@ -82,33 +95,44 @@ void Polynomial::addNewterm(int c, int i) {
     }
 }
 
-void operator<<(ostream& obj, Polynomial& p) {
+Polynomial& Polynomial::operator=(Polynomial& rhs) {
+    start = NULL;
+    Term* temp = rhs.start;
+    while (temp != NULL) {
+        addNewterm(temp->coeff, temp->index);
+        temp = temp->next;
+    }
+    return *this;
+}
+
+ostream& operator<<(ostream& obj, Polynomial& p) {
     Term* temp = p.start;
     while (temp) {
         if (temp->index == 0)
-            cout << temp->coeff;
+            obj << temp->coeff;
         else if (temp->index == 1 && temp->coeff == 1)
-            cout << "x";
-        else if (temp->index == 1 && temp->coeff == 1)
-            cout << "-x";
+            obj << "x";
+        else if (temp->index == 1 && temp->coeff == -1)
+            obj << "-x";
         else if (temp->index == 1 && temp->coeff != 1 && temp->coeff != -1)
-            cout << temp->coeff << "x";
+            obj << temp->coeff << "x";
         else if (temp->index != 1 && temp->coeff == 1)
-            cout << "x^" << temp->index;
+            obj << "x^" << temp->index;
         else if (temp->index != 1 && temp->coeff == -1)
-            cout << "-x^" << temp->index;
+            obj << "-x^" << temp->index;
         else
-            cout << temp->coeff << "x^" << temp->index;
+            obj << temp->coeff << "x^" << temp->index;
         temp = temp->next;
         if (temp)
-            cout << " + ";
+            obj << " + ";
     }
-    cout << endl;
+    obj << endl;
+    return obj;
 }
 
-void operator>>(istream& obj, Polynomial& p) {
+istream& operator>>(istream& obj, Polynomial& p) {
     int t;
-    cout << "Enter the number of terms for the first polynomial: ";
+    cout << "Enter the number of terms for the polynomial: ";
     cin >> t;
     while(t--) {
         int c, i;
@@ -116,13 +140,15 @@ void operator>>(istream& obj, Polynomial& p) {
         cin >> c >> i;
         p.addNewterm(c, i);
     };
+    cout << endl;
+    return obj;
 }
 
 
-Polynomial Polynomial::operator+(Polynomial p2) {
-    Term* t1 = start;
-    Term* t2 = p2.getPolynomial();
-    Polynomial res;
+Polynomial& operator+(Polynomial& p1, Polynomial& p2) {
+    Term* t1 = p1.start;
+    Term* t2 = p2.start;
+    static Polynomial res;
     while (t1 && t2) {
         if (t1->index == t2->index) {
             res.addNewterm(t1->coeff + t2->coeff, t1->index);
@@ -148,10 +174,10 @@ Polynomial Polynomial::operator+(Polynomial p2) {
 }
 
 
-Polynomial Polynomial::operator-(Polynomial p2) {
-    Term* t1 = start;
-    Term* t2 = p2.getPolynomial();
-    Polynomial res;
+Polynomial& operator-(Polynomial& p1, Polynomial& p2) {
+    Term* t1 = p1.start;
+    Term* t2 = p2.start;
+    static Polynomial res;
     while (t1 && t2) {
         if (t1->index == t2->index) {
             res.addNewterm(t1->coeff - t2->coeff, t1->index);
@@ -177,21 +203,13 @@ Polynomial Polynomial::operator-(Polynomial p2) {
 }
 
 
-main(void) {
-
-    int ch, c, i, t;
+int main(void) {
 
     Polynomial p1, p2;
 
-    cin >> p1;
-    cout << endl << "Polynomial 1: ";
-    cout << p1;
-    cout << endl;
-
-    cin >> p2;
-    cout << endl << "Polynomial 2: ";
-    cout << p2;
-    cout << endl;
+    cin >> p1 >> p2;
+    cout << "Polynomial 1: " << p1 << endl;
+    cout << "Polynomial 2: " << p2 << endl;
 
     Polynomial add = p1 + p2;
     cout << "Addition: ";
@@ -200,4 +218,6 @@ main(void) {
     Polynomial sub = p1 - p2;
     cout << "Subtraction: ";
     cout << sub;
+
+    return 0;
 }
