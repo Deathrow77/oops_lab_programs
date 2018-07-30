@@ -51,8 +51,8 @@ public:
 	}
 
 
-	void enqueue(const int& num);
-	void dequeue();
+	virtual void enqueue(const int& num);
+	virtual void dequeue();
 	void printQueue();
 };
 
@@ -115,19 +115,21 @@ void PriorityQueue :: enqueue(const int& num) {
 	int tail = getTail();
 	int head = getHead();
 	int max_size = getMaxSize();
-	if (tail == max_size) {
+	try {
+		if (tail == max_size)
+			throw -1;
+	
+		setTail(++tail);
+		int i = tail - 1;
+		int* queue = getQueue();
+		queue[i] = num;
+	
+		while (i != head && queue[parent(i)] < queue[i]) {
+			swap(queue[i], queue[parent(i)]);
+			i = parent(i);
+		}
+	} catch(int) {
 		cout << "Can't add more elements, heap is full" << endl;
-		return;
-	}
-
-	setTail(++tail);
-	int i = tail - 1;
-	int* queue = getQueue();
-	queue[i] = num;
-
-	while (i != head && queue[parent(i)] < queue[i]) {
-		swap(queue[i], queue[parent(i)]);
-		i = parent(i);
 	}
 }
 
@@ -136,38 +138,40 @@ void PriorityQueue :: dequeue() {
 	int head = getHead();
 	int* queue = getQueue();
 
-	if (tail == 0 || head > tail) {
+	try {
+		if (tail == 0 || head > tail)
+			throw -1;
+
+		setTail(--tail);
+		swap(queue[head], queue[tail]);
+		int i = head;
+
+		while (leftChild(i) <= tail &&
+			   (queue[i] < queue[leftChild(i)] || queue[i] < queue[rightChild(i)])) {
+			int swappable = queue[leftChild(i)] > queue[rightChild(i)] ? leftChild(i) : rightChild(i);
+			swap(queue[swappable], queue[i]);
+			i = swappable;
+		}
+	} catch(int) {
 		cout << "Can't delete from an empty queue" << endl;
-		return;
-	}
-
-	setTail(--tail);
-	swap(queue[head], queue[tail]);
-	int i = head;
-
-	while (leftChild(i) <= tail &&
-		   (queue[i] < queue[leftChild(i)] || queue[i] < queue[rightChild(i)])) {
-		int swappable = queue[leftChild(i)] > queue[rightChild(i)] ? leftChild(i) : rightChild(i);
-		swap(queue[swappable], queue[i]);
-		i = swappable;
 	}
 }
 
 int main(void) {
 
-	PriorityQueue q(100);
+	Queue* q = new PriorityQueue(100);
 
-	q.enqueue(13);
-	q.enqueue(33);
-	q.enqueue(44);
-	q.enqueue(11);
+	q->enqueue(13);
+	q->enqueue(33);
+	q->enqueue(44);
+	q->enqueue(11);
 
-	q.printQueue();
+	q->printQueue();
 
-	q.dequeue();
-	q.dequeue();
+	q->dequeue();
+	q->dequeue();
 
-	q.printQueue();
+	q->printQueue();
 
 	return 0;
 }
